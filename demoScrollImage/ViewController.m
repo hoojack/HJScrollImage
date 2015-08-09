@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "HJScrollImage.h"
-#import "HJScrollItemData.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) HJScrollImage* scrollView;

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 hoojack. All rights reserved.
 //
 
+#import "HJScrollItemData.h"
 #import <UIKit/UIKit.h>
 
 @interface HJScrollImage : UIView

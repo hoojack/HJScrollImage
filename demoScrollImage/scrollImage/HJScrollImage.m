@@ -8,7 +8,6 @@
 
 #import "HJScrollImage.h"
 #import "HJScrollItem.h"
-#import "HJScrollItemData.h"
 
 @interface HJScrollImage() <UIScrollViewDelegate>
 
