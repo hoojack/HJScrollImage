@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSArray* datas;
 
+- (void)stop;
+
 @end

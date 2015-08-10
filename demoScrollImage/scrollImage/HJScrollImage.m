@@ -139,12 +139,18 @@
 - (void)endTimer
 {
     [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)scrollPage
 {
     CGFloat itemW = CGRectGetWidth(self.frame);
     [self.scrollView setContentOffset:CGPointMake(itemW * 2, 0) animated:YES];
+}
+
+- (void)stop
+{
+    [self endTimer];
 }
 
 #pragma mark - <UIScrollViewDelegate>

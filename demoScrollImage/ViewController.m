@@ -38,6 +38,11 @@
     self.scrollView.datas = array;
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.scrollView stop];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
