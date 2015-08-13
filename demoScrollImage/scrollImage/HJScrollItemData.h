@@ -10,7 +10,7 @@
 
 @interface HJScrollItemData : NSObject
 
-@property (nonatomic, assign) NSUInteger index;
+@property (nonatomic, assign) NSInteger index;
 @property (nonatomic, copy) NSString* imageName;
 @property (nonatomic, copy) NSString* title;
 @property (nonatomic, copy) NSString* desc;

@@ -89,7 +89,7 @@
 {
     _datas = datas;
     
-    int index = 1;
+    int index = 0;
     for (HJScrollItemData* data in self.datas)
     {
         data.index = index;
@@ -184,23 +184,23 @@
             self.rightItem.frame = self.rightFrame;
         }
         
-        NSUInteger count = self.datas.count;
-        NSUInteger curindex = self.midItem.data.index;
-        NSUInteger previndex = curindex - 1;
-        NSUInteger nextindex = curindex + 1;
+        NSInteger count = self.datas.count;
+        NSInteger curindex = self.midItem.data.index;
+        NSInteger previndex = curindex - 1;
+        NSInteger nextindex = curindex + 1;
        
-        if (previndex < 1)
+        if (previndex < 0)
         {
-            previndex = count;
+            previndex = count - 1;
         }
-        if (nextindex > count)
+        if (nextindex >= count)
         {
-            nextindex = 1;
+            nextindex = 0;
         }
         
-        self.leftItem.data = [self.datas objectAtIndex:previndex - 1];
-        self.rightItem.data = [self.datas objectAtIndex:nextindex - 1];
-        self.pageControl.currentPage = curindex - 1;
+        self.leftItem.data = [self.datas objectAtIndex:previndex];
+        self.rightItem.data = [self.datas objectAtIndex:nextindex];
+        self.pageControl.currentPage = curindex;
     }
 }
 
