@@ -8,8 +8,14 @@
 #import <UIKit/UIKit.h>
 
 @class HJScrollItemData;
+@protocol HJScrollItemDelegate <NSObject>
+@required
+- (void)didSelectItem:(HJScrollItemData*)data;
+@end
+
 @interface HJScrollItem : UIView
 
 @property (nonatomic, strong) HJScrollItemData* data;
+@property (nonatomic, weak) id<HJScrollItemDelegate> delegate;
 
 @end

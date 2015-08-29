@@ -9,7 +9,7 @@
 #import "HJScrollImage.h"
 #import "HJScrollItem.h"
 
-@interface HJScrollImage() <UIScrollViewDelegate>
+@interface HJScrollImage() <UIScrollViewDelegate, HJScrollItemDelegate>
 
 @property (nonatomic, weak) UIScrollView* scrollView;
 @property (nonatomic, weak) UIPageControl* pageControl;
@@ -57,14 +57,17 @@
     self.pageControl = pageControl;
     
     HJScrollItem* leftItem = [[HJScrollItem alloc] init];
+    leftItem.delegate = self;
     [self.scrollView addSubview:leftItem];
     self.leftItem = leftItem;
     
     HJScrollItem* midItem = [[HJScrollItem alloc] init];
+    midItem.delegate = self;
     [self.scrollView addSubview:midItem];
     self.midItem = midItem;
     
     HJScrollItem* rightItem = [[HJScrollItem alloc] init];
+    rightItem.delegate = self;
     [self.scrollView addSubview:rightItem];
     self.rightItem = rightItem;
 }
@@ -212,6 +215,15 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     [self startTimer];
+}
+
+#pragma mark - <HJScrollItemDelegate>
+- (void)didSelectItem:(HJScrollItemData *)data
+{
+    if (nil != self.delegate && [self.delegate respondsToSelector:@selector(HJScrollImage:didSelectItem:)])
+    {
+        [self.delegate HJScrollImage:self didSelectItem:data];
+    }
 }
 
 @end

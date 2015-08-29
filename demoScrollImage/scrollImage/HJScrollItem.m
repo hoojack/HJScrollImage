@@ -66,4 +66,12 @@
     self.lblTitle.text = [NSString stringWithFormat:@"  %@", self.data.title];
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (nil != self.delegate && [self.delegate respondsToSelector:@selector(didSelectItem:)])
+    {
+        [self.delegate performSelector:@selector(didSelectItem:) withObject:self.data];
+    }
+}
+
 @end

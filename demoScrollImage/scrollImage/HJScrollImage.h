@@ -6,12 +6,19 @@
 //  Copyright (c) 2015年 hoojack. All rights reserved.
 //
 
-#import "HJScrollItemData.h"
 #import <UIKit/UIKit.h>
+#import "HJScrollItemData.h"
+
+@class HJScrollImage;
+@protocol HJScrollImageDelegate <NSObject>
+@optional
+- (void)HJScrollImage:(HJScrollImage*)scrollImage didSelectItem:(HJScrollItemData*)itemData;
+@end
 
 @interface HJScrollImage : UIView
 
 @property (nonatomic, strong) NSArray* datas;
+@property (nonatomic, weak) id<HJScrollImageDelegate> delegate;
 
 - (void)stop;
 

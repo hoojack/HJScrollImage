@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "HJScrollImage.h"
 
-@interface ViewController ()
+@interface ViewController () <HJScrollImageDelegate>
 @property (nonatomic, weak) HJScrollImage* scrollView;
 @end
 
@@ -33,9 +33,11 @@
         HJScrollItemData* data = [[HJScrollItemData alloc] init];
         data.imageName = [NSString stringWithFormat:@"%d", i + 1];
         data.title = [NSString stringWithFormat:@"第 %d 张图片", i + 1];
+        data.url = @"http://github.com/hoojack";
         [array addObject:data];
     }
     self.scrollView.datas = array;
+    self.scrollView.delegate = self;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -46,6 +48,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - <HJScrollImageDelegate>
+- (void)HJScrollImage:(HJScrollImage *)scrollImage didSelectItem:(HJScrollItemData *)itemData
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itemData.url]];
 }
 
 @end
