@@ -126,7 +126,7 @@
         }
     }
     
-    [self startTimer];
+    //[self startTimer];
 }
 
 - (void)startTimer
@@ -149,6 +149,11 @@
 {
     CGFloat itemW = CGRectGetWidth(self.frame);
     [self.scrollView setContentOffset:CGPointMake(itemW * 2, 0) animated:YES];
+}
+
+- (void)start
+{
+    [self startTimer];
 }
 
 - (void)stop

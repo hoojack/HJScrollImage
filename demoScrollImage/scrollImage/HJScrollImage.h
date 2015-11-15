@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSArray* datas;
 @property (nonatomic, weak) id<HJScrollImageDelegate> delegate;
 
+- (void)start;
 - (void)stop;
 
 @end

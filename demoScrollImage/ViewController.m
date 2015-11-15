@@ -38,6 +38,7 @@
     }
     self.scrollView.datas = array;
     self.scrollView.delegate = self;
+    [self.scrollView start];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
